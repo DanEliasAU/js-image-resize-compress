@@ -86,7 +86,7 @@ document.getElementById("start-btn").addEventListener('click', () => {
 document.getElementById("im-preview").addEventListener('load', (e) => {
     const fileName = file.name.substring(0, file.name.lastIndexOf('.'));
     document.getElementById("download").href = document.getElementById("im-preview").src;
-    document.getElementById("download").download = fileName + ".jpeg";
+    document.getElementById("download").download = fileName;
 
     document.getElementById("res").innerText = e.target.naturalWidth + " x " + e.target.naturalHeight + " px";
 });
