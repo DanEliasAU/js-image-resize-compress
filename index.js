@@ -69,7 +69,7 @@ document.getElementById("start-btn").addEventListener('click', () => {
         file = fileInput.files[0];
         chooseOptions(file);
     } else {
-        if (urlInput.value) {
+        if (urlInput.value && isValidUrl(urlInput.value)) {
             fetch(urlInput.value).then((response) => {
                 response.blob().then((imBlob) => {
                     const fileName = urlInput.value.substring(urlInput.value.lastIndexOf('/') + 1, urlInput.value.length);
@@ -86,8 +86,7 @@ document.getElementById("start-btn").addEventListener('click', () => {
 document.getElementById("im-preview").addEventListener('load', (e) => {
     const fileName = file.name.substring(0, file.name.lastIndexOf('.'));
     document.getElementById("download").href = document.getElementById("im-preview").src;
-    document.getElementById("download").download = fileName;
-
+    document.getElementById("download").download = fileName + ".jpeg";
     document.getElementById("res").innerText = e.target.naturalWidth + " x " + e.target.naturalHeight + " px";
 });
 
@@ -113,4 +112,16 @@ function drawImage(file) {
             scale: document.getElementById("im-scale").value * 0.01, 
             compressFactor: document.getElementById("compress-scale").value * 0.01
         });
+}
+
+function isValidUrl(urlString) {
+    let url;
+
+    try {
+        url = new URL(urlString);
+    } catch (e) {
+        return false;
+    }
+
+    return true;
 }

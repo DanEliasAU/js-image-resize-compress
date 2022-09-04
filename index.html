@@ -8,21 +8,20 @@
         <div id="sel-file-div"  class="main-divs">
             <p style="margin: 10px 0 10px 0;">Upload Image</p>
             <input id="im-inpt" type="file" style="margin-bottom: 10px;">
-            <label for="">url: <input type="text" name="" id="url-inpt"></label>
+            <label for="">url: <input type="text" name="" id="url-inpt" autocomplete="off"></label>
             <button id="start-btn">Start</button>
         </div>
         <div id="preview-div" class="main-divs">
-            <p>Image Preview</p>
             <img id="im-preview">
             <p id="res" style="margin: 0;"></p>
-            <p>Image scale</p>
+            <p>Image scale:</p>
             <input type="range" id="im-scale" min="1" max="100" value="100" 
                 oninput="this.nextElementSibling.value = (this.value + '%');">
             <output>100%</output>
-            <p>Jpeg compression factor</p>
+            <p>Jpeg compression factor:</p>
             <input type="range" id="compress-scale" min="1" max="100" value="86" 
-                oninput="this.nextElementSibling.value = this.value;">
-            <output>86</output>
+                oninput="this.nextElementSibling.value = (this.value*0.01).toFixed(2);">
+            <output>0.86</output>
             <a id="download">Download</button>
         </div>
     </div>
