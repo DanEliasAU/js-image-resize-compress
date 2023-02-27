@@ -9,20 +9,30 @@
             <p style="margin: 10px 0 10px 0;">Upload Image</p>
             <input id="im-inpt" type="file" style="margin-bottom: 10px;">
             <label for="">url: <input type="text" name="" id="url-inpt" autocomplete="off"></label>
+            <label for="" style="margin: 5px 0 0px 0;">Upscale:
+                <input type="radio" name="upscale" value="0" checked>None
+                <input type="radio" name="upscale" value="2">2x
+                <input type="radio" name="upscale" value="4">4x
+            </label>
             <button id="start-btn">Start</button>
         </div>
         <div id="preview-div" class="main-divs">
             <img id="im-preview">
             <p id="res" style="margin: 0;"></p>
-            <p>Image scale:</p>
+            <p style="margin-bottom: 5px;">Image scale:</p>
             <input type="range" id="im-scale" min="1" max="100" value="100" 
                 oninput="this.nextElementSibling.value = (this.value + '%');">
             <output>100%</output>
-            <p>Jpeg compression factor:</p>
+            <p style="margin-bottom: 5px;">Jpeg compression factor:</p>
             <input type="range" id="compress-scale" min="1" max="100" value="86" 
                 oninput="this.nextElementSibling.value = (this.value*0.01).toFixed(2);">
             <output>0.86</output>
-            <a id="download">Download</button>
+            <label style="margin: 10px 0 10px 0">Fill Transparency: 
+                <input type="radio" name="transparency" value="#fff" checked>White
+                <input type="radio" name="transparency" value="#000">Black
+            </label>
+            <label>Name: <input id="name-input" type="text"/></label>
+            <a id="download" style="display: none;">Download</button>
         </div>
     </div>
 </body>
